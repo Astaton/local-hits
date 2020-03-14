@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import "./css/App.css";
+import { Theatre, SeriesMenu, MainMenu, NavBar } from "./Components";
 
-function App() {
+const App: React.FC = () => {
+  // const content: Array<String> = [];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <main className="mainContainer">
+        <NavBar />
+        <Switch>
+          <Route exact path={"/"} component={MainMenu} />
+          <Route path={"/series"} render={() => <SeriesMenu />} />
+          <Route path={"/theatre"} component={Theatre} />
+        </Switch>
+      </main>
+    </Router>
   );
-}
+};
+
+// <div className="App">
+//   <h2 className="header">This is the tsx version?</h2>
+//   <Theatre />
+// </div>
 
 export default App;
