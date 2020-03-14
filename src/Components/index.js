@@ -4,6 +4,7 @@ export { default as MainMenu } from "./MainMenu";
 export { default as NavBar } from "./NavBar";
 export { default as SelectedSeriesInfo } from "./SelectedSeriesInfo";
 export { default as SeriesMenu } from "./SeriesMenu";
+export { default as SeriesPreview } from "./SeriesPreview";
 export { default as Theatre } from "./Theatre";
 export { default as VideoPlayer } from "./VideoPlayer";
 export { default as VideoControls } from "./VideoControl";
