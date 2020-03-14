@@ -3,6 +3,7 @@ export const library = {
     {
       title: "Cowboy Bebop",
       image: "default.jpg",
+      description: "",
       path:
         "/home/aaron/FullStack/Hackathon/localthits1/src/library/Cowboy Bebop fight scene.mp4"
     }
@@ -11,6 +12,7 @@ export const library = {
     {
       title: "Beautiful Nature",
       image: "default.jpg",
+      description: "",
       path:
         "/home/aaron/FullStack/Hackathon/localthits1/src/library/beautiful scene of nature.mp4"
     }
