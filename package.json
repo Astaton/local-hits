@@ -1,6 +1,7 @@
 {
   "name": "local-hits",
   "version": "0.1.0",
+  "main": "",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -10,15 +11,21 @@
     "@types/node": "^12.12.29",
     "@types/react": "^16.9.23",
     "@types/react-dom": "^16.9.5",
+    "libvlc": "0.0.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start:web": "react-scripts start",
+    "build:web": "PUBLIC_URL=./ react-scripts build",
+    "build:desktop": "tsc -p electron/tsconfig.json",
+    "start:desktop": "npm run build:desktop && electron ./build/electron.js",
     "test": "react-scripts test",
+    "quick": "npm run build:web && npm run start:desktop",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,5 +42,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router": "^5.1.4",
+    "@types/react-router-dom": "^5.1.3",
+    "electron": "^8.1.1"
   }
 }
