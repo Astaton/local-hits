@@ -8,8 +8,8 @@ import { DisplaySeries, SelectedSeriesInfo } from "./";
 import { library } from "../library";
 
 const SeriesMenu = () => {
-  const [series, setSeries] = useState(Object.keys(library));
-  const [selectedSeries, setSelectedSeries] = useState(library[series[0]][0]);
+  const [genre, setGenre] = useState(Object.keys(library));
+  const [selectedSeries, setSelectedSeries] = useState(library[genre[0]][0]);
   useEffect(() => {
     console.log("In SeriesMenu selectedSeries is: ", selectedSeries.path);
   }, []);
@@ -18,8 +18,8 @@ const SeriesMenu = () => {
     <div>
       <p>Series Menu</p>
       <DisplaySeries
-        series={series}
-        setSeries={setSeries}
+        genre={genre}
+        selectedSeries={selectedSeries}
         setSelectedSeries={setSelectedSeries}
       />
       <SelectedSeriesInfo
