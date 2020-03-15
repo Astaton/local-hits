@@ -1,17 +1,27 @@
 //react imports
 import React from "react";
 
+//style import
+import "../css/SeriesPreview.css";
 //other imports
 // import { library } from "../library"
 
-const SeriesPreview = ({ title, img, series, setSelectedSeries }) => {
+const SeriesPreview = ({ series, setSelectedSeries }) => {
+  const clickHandler = () => {
+    setSelectedSeries(series);
+    document.getElementById("video").load();
+  };
   return (
     <div
       key={series.title}
       className="seriesPreviewContainer"
-      onClick={() => setSelectedSeries(series)}
+      onClick={clickHandler}
     >
-      <img src={series.img} alt="series preview" />
+      <img
+        className="seriesPreviewImg"
+        src={series.image}
+        alt="series preview"
+      />
       <p>{series.description}</p>
     </div>
   );
