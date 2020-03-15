@@ -1,0 +1,10 @@
+.seriesPreviewContainer {
+  height: 300px;
+  width: 350px;
+  background-color: #747474;
+}
+
+.seriesPreviewImg {
+  max-width: 100%;
+  max-height: 100%;
+}

@@ -1,15 +1,13 @@
+//react imports
 import React from "react";
+
+//Component imports
 import { VideoPlayer, VideoControls } from "./";
-import { library } from "./../library";
 
 const Theatre = () => {
   return (
     <div>
-      <VideoPlayer
-        height="400"
-        width="600"
-        src={library["Fight Scenes"][0].path}
-      />
+      <VideoPlayer />
       <VideoControls />
     </div>
   );

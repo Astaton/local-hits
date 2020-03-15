@@ -4,27 +4,30 @@ import React, { useState, useEffect } from "react";
 //Component imports
 import { DisplaySeries, SelectedSeriesInfo } from "./";
 
+//style import
+import "../css/SeriesMenu.css";
+
 //other imports
 import { library } from "../library";
 
-const SeriesMenu = () => {
-  const [series, setSeries] = useState(Object.keys(library));
-  const [selectedSeries, setSelectedSeries] = useState(library[series[0]][0]);
-  useEffect(() => {
-    console.log("In SeriesMenu selectedSeries is: ", selectedSeries.path);
-  }, []);
+const SeriesMenu = ({ history }) => {
+  const libraryGenres = Object.keys(library);
+  const [genre, setGenre] = useState(library[libraryGenres[0]]);
+  const [selectedSeries, setSelectedSeries] = useState(
+    library[libraryGenres[0]][0]
+  );
 
   return (
-    <div>
-      <p>Series Menu</p>
+    <div className="seriesMenu">
       <DisplaySeries
-        series={series}
-        setSeries={setSeries}
+        genre={genre}
+        selectedSeries={selectedSeries}
         setSelectedSeries={setSelectedSeries}
       />
       <SelectedSeriesInfo
         title={selectedSeries.title}
         path={selectedSeries.path}
+        history={history}
       />
     </div>
   );

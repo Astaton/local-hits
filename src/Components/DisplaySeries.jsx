@@ -1,9 +1,23 @@
+//react imports
 import React from "react";
 
-const DisplaySeries = ({ series, setSeries, setSelectedSeries }) => {
+//component imports
+import { SeriesPreview } from "./";
+
+//style import
+import "../css/DisplaySeries.css";
+
+const DisplaySeries = ({ genre, selectedSeries, setSelectedSeries }) => {
   return (
-    <div>
-      <p>Show Series here</p>
+    <div className="displaySeriesWrapper">
+      {genre.map(series => {
+        return (
+          <SeriesPreview
+            series={series}
+            setSelectedSeries={setSelectedSeries}
+          />
+        );
+      })}
     </div>
   );
 };

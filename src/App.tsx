@@ -12,17 +12,12 @@ const App: React.FC = () => {
         <NavBar />
         <Switch>
           <Route exact path={"/"} component={MainMenu} />
-          <Route path={"/series"} render={() => <SeriesMenu />} />
+          <Route path={"/series"} component={SeriesMenu} />
           <Route path={"/theatre"} component={Theatre} />
         </Switch>
       </main>
     </Router>
   );
 };
-
-// <div className="App">
-//   <h2 className="header">This is the tsx version?</h2>
-//   <Theatre />
-// </div>
 
 export default App;
