@@ -4,10 +4,12 @@ import React from "react";
 //component imports
 import { SeriesPreview } from "./";
 
-const DisplaySeries = ({ genre, setSeries, setSelectedSeries }) => {
+//style import
+import "../css/DisplaySeries.css";
+
+const DisplaySeries = ({ genre, selectedSeries, setSelectedSeries }) => {
   return (
-    <div>
-      <p>Show Series here</p>
+    <div className="displaySeriesWrapper">
       {genre.map(series => {
         return (
           <SeriesPreview
