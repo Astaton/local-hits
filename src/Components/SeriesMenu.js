@@ -4,19 +4,21 @@ import React, { useState, useEffect } from "react";
 //Component imports
 import { DisplaySeries, SelectedSeriesInfo } from "./";
 
+//style import
+import "../css/SeriesMenu.css";
+
 //other imports
 import { library } from "../library";
 
-const SeriesMenu = () => {
-  const [genre, setGenre] = useState(Object.keys(library));
-  const [selectedSeries, setSelectedSeries] = useState(library[genre[0]][0]);
-  useEffect(() => {
-    console.log("In SeriesMenu selectedSeries is: ", selectedSeries.path);
-  }, []);
+const SeriesMenu = ({ history }) => {
+  const libraryGenres = Object.keys(library);
+  const [genre, setGenre] = useState(library[libraryGenres[0]]);
+  const [selectedSeries, setSelectedSeries] = useState(
+    library[libraryGenres[0]][0]
+  );
 
   return (
-    <div>
-      <p>Series Menu</p>
+    <div className="seriesMenu">
       <DisplaySeries
         genre={genre}
         selectedSeries={selectedSeries}
@@ -25,6 +27,7 @@ const SeriesMenu = () => {
       <SelectedSeriesInfo
         title={selectedSeries.title}
         path={selectedSeries.path}
+        history={history}
       />
     </div>
   );
