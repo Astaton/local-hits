@@ -4,8 +4,7 @@ import React from "react";
 //Component imports
 import { VideoPlayer, VideoControls } from "./";
 
-const Theatre = props => {
-  console.log("In theatre the props are: ", props);
+const Theatre = () => {
   return (
     <div>
       <VideoPlayer />
