@@ -12,13 +12,35 @@ const Theatre = ({ history }) => {
   const { genreName, clipTitle } = useParams();
 
   const [srcPath, setSrcPath] = useState("");
+  const [clipNo, setClipNo] = useState(null);
+  const [intervalTimer, setIntervalTimer] = useState(null);
 
   useEffect(() => {
-    const clipObject = library[genreName].filter(
-      clip => clip.title === clipTitle
-    );
-    setSrcPath(clipObject[0].path);
-  }, [clipTitle, genreName, srcPath]);
+    let clipObject;
+    for (let i = 0; i < library[genreName].length; i++) {
+      if (library[genreName][i].title === clipTitle) {
+        clipObject = library[genreName][i];
+      }
+    }
+    setSrcPath(clipObject.path);
+    const playNextCheck = () => {
+      const videoElement = document.getElementById("video");
+      const currentTimer = setInterval(() => {
+        if (
+          videoElement.currentTime === videoElement.duration &&
+          clipNo < library[genreName].length
+        ) {
+          setClipNo(clipNo + 1);
+          clearInterval(intervalTimer);
+        }
+      }, 999);
+      setIntervalTimer(currentTimer);
+    };
+    playNextCheck();
+    return () => {
+      clearInterval(intervalTimer);
+    };
+  }, [clipTitle, genreName, srcPath, clipNo]);
 
   return (
     <div>
