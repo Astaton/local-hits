@@ -1,0 +1,13 @@
+.navBar {
+  background-color: #747474;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  margin: 0px 5px;
+}
