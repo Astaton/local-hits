@@ -14,6 +14,7 @@ const App: React.FC = () => {
           <Route exact path={"/"} component={MainMenu} />
           <Route path={"/series"} component={SeriesMenu} />
           <Route path={"/theatre/:genreName/:clipTitle"} component={Theatre} />
+          <Route component={SeriesMenu} />
         </Switch>
       </main>
     </Router>
