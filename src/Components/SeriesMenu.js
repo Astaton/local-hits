@@ -25,6 +25,7 @@ const SeriesMenu = ({ history }) => {
         setSelectedSeries={setSelectedSeries}
       />
       <SelectedSeriesInfo
+        genreName={libraryGenres[0]}
         title={selectedSeries.title}
         path={selectedSeries.path}
         history={history}
