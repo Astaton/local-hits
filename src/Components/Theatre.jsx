@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 //Component imports
 import { VideoPlayer, VideoControls } from "./";
 
+//style imports
+import "../css/Theatre.css";
+
 //other imports
 import { library } from "../library";
 
@@ -14,6 +17,8 @@ const Theatre = ({ history }) => {
   const [srcPath, setSrcPath] = useState("");
 
   useEffect(() => {
+    const videoElem = document.getElementById("video");
+    videoElem.webkitEnterFullScreen();
     const clipObject = library[genreName].filter(
       clip => clip.title === clipTitle
     );
@@ -21,7 +26,7 @@ const Theatre = ({ history }) => {
   }, [clipTitle, genreName, srcPath]);
 
   return (
-    <div>
+    <div className="theatre">
       <VideoPlayer path={srcPath} auto={true} />
       <VideoControls history={history} />
     </div>
