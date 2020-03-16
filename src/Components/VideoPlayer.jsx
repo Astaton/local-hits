@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 const defaultPath =
   "/home/aaron/FullStack/Hackathon/localthits1/src/library/beautiful scene of nature.mp4";
 
-const VideoPlayer = ({ width, height, path, controls }) => {
+const VideoPlayer = ({ width, height, path, auto }) => {
   let srcPath = path || defaultPath;
-  console.log("In VideoPlayer the srcPath is: ", srcPath);
   useEffect(() => {
-    console.log("the path in VideoPlayer is: ", path);
-  }, [path]);
+    const video = document.getElementById("video");
+    video.autoplay = auto;
+  }, [path, auto]);
   return (
     <video width={width} height={height} id="video">
       <source src={srcPath} type="video/mp4" />
