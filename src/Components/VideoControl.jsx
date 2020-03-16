@@ -2,15 +2,14 @@
 import React, { useState, useEffect } from "react";
 
 //other imports
-import { library } from "./../library";
 const electron = window.require("electron");
 const mainWindow = electron.remote.getCurrentWindow();
 
-const VideoControls = () => {
+const VideoControls = ({ history }) => {
   const [video, setVideo] = useState();
 
   useEffect(() => {
-    const videoElement = document.getElementsByTagName("video")[0];
+    const videoElement = document.getElementById("video");
     setVideo(videoElement);
   }, []);
 
@@ -30,6 +29,7 @@ const VideoControls = () => {
     <div>
       <button onClick={playPauseHandler}>Play/Pause</button>
       <button onClick={fullScreenHandler}>Exit Full Screen</button>
+      <button onClick={() => history.push("/")}>Return to Series Menu</button>
     </div>
   );
 };
