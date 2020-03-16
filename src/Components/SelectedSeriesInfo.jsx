@@ -12,13 +12,13 @@ import { library } from "./../library";
 const electron = window.require("electron");
 const mainWindow = electron.remote.getCurrentWindow();
 
-const SelectedSeriesInfo = ({ title, path, history }) => {
+const SelectedSeriesInfo = ({ genreName, title, path, history }) => {
   const clickHandler = () => {
     mainWindow.setFullScreen(true);
-    history.push("theatre");
+    history.push(`theatre/${genreName}/${title}`);
   };
   return (
-    <div className="SeriesInfoContainer" onClick={clickHandler}>
+    <div className="seriesInfoContainer" onClick={clickHandler}>
       <VideoPlayer path={path} width="500" />
       <div className="titleWrapper">
         <p className="title">{title}</p>
